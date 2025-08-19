@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BiblioApps | Tu Biblioteca de Aplicaciones Web</title>
+    <title>PazzApp | Tu Biblioteca de Aplicaciones Web</title>
     
     <!-- Importamos una fuente atractiva desde Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
             darkMode: 'class',
         }
     </script>
-    <style type="text/tailwindcss">
+    <style>
         /* Estilos para la flecha del acordeón */
         summary {
             list-style-type: '► ';
@@ -28,12 +28,10 @@
             list-style-type: '▼ ';
         }
 
-        /* Estilos para el efecto Neón */
+        /* Estilos para el efecto Neón (sin @apply) */
         .neon-effect {
-            @apply rounded-2xl p-1; /* Añadimos un pequeño padding para el brillo */
-            background-color: #0c0c1e; /* Un fondo muy oscuro para el efecto */
+            background-color: #0c0c1e;
             border: 2px solid #00d9ff;
-            /* Múltiples sombras para crear el resplandor */
             box-shadow: 
                 0 0 5px #00d9ff,
                 0 0 15px #00d9ff,
@@ -50,19 +48,14 @@
                 inset 0 0 10px #00d9ff;
         }
 
-        /* Estilos para el desplegable Rojo Metalizado */
-        .metallic-red {
-            @apply rounded-lg overflow-hidden;
+        /* Estilos para el desplegable (sin @apply) */
+        .metallic-effect {
             background-image: linear-gradient(160deg, #0e0645 0%, #0f1349 40%, #200947 100%);
             border: 1px solid #880e4f;
             box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.5), 0 2px 4px rgba(0,0,0,0.2);
         }
-        .metallic-red > summary {
-            @apply p-4 font-semibold cursor-pointer text-white;
+        .metallic-effect > summary {
             text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-        }
-        .metallic-red > p {
-            @apply p-4 pt-0 text-gray-200 bg-black bg-opacity-20 text-base; /* Texto agrandado */
         }
     </style>
 </head>
@@ -73,8 +66,7 @@
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <!-- Logo y Nombre del Sitio -->
             <div class="flex items-center space-x-3">
-                <!-- EDITAR AQUÍ: Cambia la URL de la imagen por la de tu logo -->
-                <img src="pazzlogo (2).png" alt="Logo de BiblioApps" class="w-10 h-10 rounded-lg">
+                <img src="pazzlogo (2).png" alt="Logo de PazzApp" class="w-10 h-10 rounded-lg">
                 <span class="text-2xl font-bold text-slate-900 dark:text-slate-100">Pazz<span class="text-blue-600">App</span></span>
             </div>
 
@@ -91,13 +83,13 @@
 
     <!-- Sección de Título Principal y Video -->
     <section class="text-center pt-16 pb-12 px-4">
-        <center><img src="pazzlogo (2).png" alt="Logo de BiblioApps" class="w-25 h-36 rounded-lg"></center>
+        <img src="pazzlogo (2).png" alt="Logo Principal de PazzApp" class="h-36 mx-auto mb-6 rounded-lg">
         <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100">La Escuela En Un Click</h1>
         <p class="mt-2 text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Una colección de aplicaciones para potenciar el estudio y el aprendizaje</p>
         
         <!-- Contenedor del Video Responsivo con Efecto Neón -->
         <div class="mt-10 mx-auto" style="max-width: 500px;">
-            <div class="neon-effect">
+            <div class="neon-effect rounded-2xl p-1">
                 <div class="relative w-full overflow-hidden aspect-video">
                     <video 
                         class="absolute top-0 left-0 w-full h-full rounded-xl" 
@@ -113,9 +105,9 @@
 
     <!-- Sección de Explicación del Proyecto -->
     <div class="container mx-auto px-4">
-        <details class="metallic-red">
-            <summary>Sobre este Proyecto</summary>
-            <p>
+        <details class="metallic-effect rounded-lg overflow-hidden">
+            <summary class="p-4 font-semibold cursor-pointer text-white">Sobre este Proyecto</summary>
+            <p class="p-4 pt-0 text-gray-200 bg-black bg-opacity-20 text-base">
                 Esta página es un proyecto institucional diseñado para servir como una biblioteca central de aplicaciones web útiles. El objetivo es proporcionar a nuestra comunidad un acceso rápido y organizado a herramientas que faciliten el aprendizaje, la productividad y la creatividad. ¡Explora las apps y descubri tu próxima herramienta favorita!
             </p>
         </details>
@@ -125,7 +117,7 @@
     <main class="container mx-auto px-4 pb-16 pt-8">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             
-            <article class="neon-effect flex flex-col overflow-hidden">
+            <article class="neon-effect rounded-2xl p-1 flex flex-col overflow-hidden">
                 <div class="p-6 flex-grow">
                     <div class="flex items-center mb-4"><img src="salud.png" alt="Logo de la App 1" class="w-16 h-16 rounded-lg mr-4"><h3 class="text-xl font-bold text-slate-100">Materia: Salud y adolescencia</h3></div>
                     <p class="text-slate-300 text-sm">Aplicación desarrollada por Julián Sanabria y lían Sanabria.</p>
@@ -133,7 +125,7 @@
                 <div class="p-4 mt-auto"><a href="sado.apk" class="block w-full text-center bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300">Descargar App</a></div>
             </article>
 
-            <article class="neon-effect flex flex-col overflow-hidden">
+            <article class="neon-effect rounded-2xl p-1 flex flex-col overflow-hidden">
                 <div class="p-6 flex-grow">
                     <div class="flex items-center mb-4"><img src="matematica.png" alt="Logo de la App 2" class="w-16 h-16 rounded-lg mr-4"><h3 class="text-xl font-bold text-slate-100">Materia: Matematicas</h3></div>
                     <p class="text-slate-300 text-sm">Aplicación desarrollada por Luka Mouesca.</p>
@@ -141,7 +133,7 @@
                 <div class="p-4 mt-auto"><a href="Studyng.apk" class="block w-full text-center bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300">Descargar App</a></div>
             </article>
 
-            <article class="neon-effect flex flex-col overflow-hidden">
+            <article class="neon-effect rounded-2xl p-1 flex flex-col overflow-hidden">
                 <div class="p-6 flex-grow">
                     <div class="flex items-center mb-4"><img src="politica.png" alt="Logo de la App 3" class="w-16 h-16 rounded-lg mr-4"><h3 class="text-xl font-bold text-slate-100">Materia: Politica y cuidadania</h3></div>
                     <p class="text-slate-300 text-sm">Aplicación desarrollada por las alumnas Marian López, Yanet Rosalez y Pricsila Alvarez.</p>
@@ -149,7 +141,7 @@
                 <div class="p-4 mt-auto"><a href="politica.apk" class="block w-full text-center bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300">Descargar App</a></div>
             </article>
 
-            <article class="neon-effect flex flex-col overflow-hidden">
+            <article class="neon-effect rounded-2xl p-1 flex flex-col overflow-hidden">
                 <div class="p-6 flex-grow">
                     <div class="flex items-center mb-4"><img src="literatura.png" alt="Logo de la App 4" class="w-16 h-16 rounded-lg mr-4"><h3 class="text-xl font-bold text-slate-100">Materia: Literatura</h3></div>
                     <p class="text-slate-300 text-sm">Aplicación desarrollada por Tomas Cirulli, Miño Ludmila y Valentin Riquelme.</p>
@@ -163,7 +155,6 @@
     <footer class="text-center py-8 mt-8 border-t border-slate-200 dark:border-slate-700 transition-colors">
         <div class="flex justify-center items-center space-x-4 mb-4">
             <span class="text-slate-500 dark:text-slate-400">Apoyado por:</span>
-            <!-- EDITAR AQUÍ: Cambia la URL por el logo de tu institución -->
             <img src="escudo escuela.png" alt="Logo Institucional" class="h-32">
         </div>
         <p class="text-slate-500 dark:text-slate-400">&copy; 2025 PazzApp. Grupo 551 Informatica, con la ayuda del profesor Nava.</p>
