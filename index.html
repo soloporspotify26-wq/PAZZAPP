@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!-- La clase 'dark' se añadirá aquí con JavaScript -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiblioApps | Tu Biblioteca de Aplicaciones Web</title>
+    
+    <!-- Importamos una fuente atractiva desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Script para cargar Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Configuración para que Tailwind reconozca la clase 'dark'
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <style type="text/tailwindcss">
+        /* Estilos para la flecha del acordeón */
+        summary {
+            list-style-type: '► ';
+        }
+        details[open] > summary {
+            list-style-type: '▼ ';
+        }
+
+        /* Estilos para el efecto Neón */
+        .neon-effect {
+            @apply rounded-2xl p-1; /* Añadimos un pequeño padding para el brillo */
+            background-color: #0c0c1e; /* Un fondo muy oscuro para el efecto */
+            border: 2px solid #00d9ff;
+            /* Múltiples sombras para crear el resplandor */
+            box-shadow: 
+                0 0 5px #00d9ff,
+                0 0 15px #00d9ff,
+                0 0 30px #00d9ff,
+                inset 0 0 5px #00d9ff;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .neon-effect:hover {
+            box-shadow: 
+                0 0 10px #00d9ff,
+                0 0 30px #00d9ff,
+                0 0 60px #00d9ff,
+                inset 0 0 10px #00d9ff;
+        }
+
+        /* Estilos para el desplegable Rojo Metalizado */
+        .metallic-red {
+            @apply rounded-lg overflow-hidden;
+            background-image: linear-gradient(160deg, #0e0645 0%, #0f1349 40%, #200947 100%);
+            border: 1px solid #880e4f;
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.5), 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .metallic-red > summary {
+            @apply p-4 font-semibold cursor-pointer text-white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+        }
+        .metallic-red > p {
+            @apply p-4 pt-0 text-gray-200 bg-black bg-opacity-20 text-base; /* Texto agrandado */
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-300 transition-colors duration-300">
+
+    <!-- Encabezado con Logo y Switch de Tema -->
+    <header class="bg-white dark:bg-slate-800 shadow-sm sticky top-0 z-10 transition-colors duration-300">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <!-- Logo y Nombre del Sitio -->
+            <div class="flex items-center space-x-3">
+                <!-- EDITAR AQUÍ: Cambia la URL de la imagen por la de tu logo -->
+                <img src="pazzlogo (2).png" alt="Logo de BiblioApps" class="w-10 h-10 rounded-lg">
+                <span class="text-2xl font-bold text-slate-900 dark:text-slate-100">Pazz<span class="text-blue-600">App</span></span>
+            </div>
+
+            <!-- Switch para Tema Claro/Oscuro -->
+            <div class="flex items-center">
+                <span class="text-sm text-slate-600 dark:text-slate-400 mr-2">Claro</span>
+                <button id="theme-toggle" class="relative inline-flex items-center h-6 rounded-full w-11 bg-slate-200 dark:bg-slate-600 transition-colors">
+                    <span id="theme-toggle-indicator" class="inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-200 ease-in-out"></span>
+                </button>
+                <span class="text-sm text-slate-600 dark:text-slate-400 ml-2">Oscuro</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección de Título Principal y Video -->
+    <section class="text-center pt-16 pb-12 px-4">
+        <center><img src="pazzlogo (2).png" alt="Logo de BiblioApps" class="w-25 h-36 rounded-lg"></center>
+        <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100">La Escuela En Un Click</h1>
+        <p class="mt-2 text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Una colección de aplicaciones para potenciar el estudio y el aprendizaje</p>
+        
+        <!-- Contenedor del Video Responsivo con Efecto Neón -->
+        <div class="mt-10 mx-auto" style="max-width: 500px;">
+            <div class="neon-effect">
+                <div class="relative w-full overflow-hidden aspect-video">
+                    <video 
+                        class="absolute top-0 left-0 w-full h-full rounded-xl" 
+                        src="PROYECTO_ PAZZAPP.mp4" 
+                        controls
+                        playsinline>
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Explicación del Proyecto -->
+    <div class="container mx-auto px-4">
+        <details class="metallic-red">
+            <summary>Sobre este Proyecto</summary>
+            <p>
+                Esta página es un proyecto institucional diseñado para servir como una biblioteca central de aplicaciones web útiles. El objetivo es proporcionar a nuestra comunidad un acceso rápido y organizado a herramientas que faciliten el aprendizaje, la productividad y la creatividad. ¡Explora las apps y descubri tu próxima herramienta favorita!
+            </p>
+        </details>
+    </div>
+
+    <!-- Contenedor principal para las tarjetas de aplicaciones -->
+    <main class="container mx-auto px-4 pb-16 pt-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            
+            <article class="neon-effect flex flex-col overflow-hidden">
+                <div class="p-6 flex-grow">
+                    <div class="flex items-center mb-4"><img src="salud.png" alt="Logo de la App 1" class="w-16 h-16 rounded-lg mr-4"><h3 class="text-xl font-bold text-slate-100">Materia: Salud y adolescencia</h3></div>
+                    <p class="text-slate-300 text-sm">Aplicación desarrollada por Julián Sanabria y lían Sanabria.</p>
+                </div>
+                <div class="p-4 mt-auto"><a href="sado.apk" class="block w-full text-center bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300">Descargar App</a></div>
+            </article>
+
+            <article class="neon-effect flex flex-col overflow-hidden">
+                <div class="p-6 flex-grow">
+                    <div class="flex items-center mb-4"><img src="matematica.png" alt="Logo de la App 2" class="w-16 h-16 rounded-lg mr-4"><h3 class="text-xl font-bold text-slate-100">Materia: Matematicas</h3></div>
+                    <p class="text-slate-300 text-sm">Aplicación desarrollada por Luka Mouesca.</p>
+                </div>
+                <div class="p-4 mt-auto"><a href="Studyng.apk" class="block w-full text-center bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300">Descargar App</a></div>
+            </article>
+
+            <article class="neon-effect flex flex-col overflow-hidden">
+                <div class="p-6 flex-grow">
+                    <div class="flex items-center mb-4"><img src="politica.png" alt="Logo de la App 3" class="w-16 h-16 rounded-lg mr-4"><h3 class="text-xl font-bold text-slate-100">Materia: Politica y cuidadania</h3></div>
+                    <p class="text-slate-300 text-sm">Aplicación desarrollada por las alumnas Marian López, Yanet Rosalez y Pricsila Alvarez.</p>
+                </div>
+                <div class="p-4 mt-auto"><a href="politica.apk" class="block w-full text-center bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300">Descargar App</a></div>
+            </article>
+
+            <article class="neon-effect flex flex-col overflow-hidden">
+                <div class="p-6 flex-grow">
+                    <div class="flex items-center mb-4"><img src="literatura.png" alt="Logo de la App 4" class="w-16 h-16 rounded-lg mr-4"><h3 class="text-xl font-bold text-slate-100">Materia: Literatura</h3></div>
+                    <p class="text-slate-300 text-sm">Aplicación desarrollada por Tomas Cirulli, Miño Ludmila y Valentin Riquelme.</p>
+                </div>
+                <div class="p-4 mt-auto"><a href="#" class="block w-full text-center bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300">Descargar App</a></div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Pie de página con Logo Institucional -->
+    <footer class="text-center py-8 mt-8 border-t border-slate-200 dark:border-slate-700 transition-colors">
+        <div class="flex justify-center items-center space-x-4 mb-4">
+            <span class="text-slate-500 dark:text-slate-400">Apoyado por:</span>
+            <!-- EDITAR AQUÍ: Cambia la URL por el logo de tu institución -->
+            <img src="escudo escuela.png" alt="Logo Institucional" class="h-32">
+        </div>
+        <p class="text-slate-500 dark:text-slate-400">&copy; 2025 PazzApp. Grupo 551 Informatica, con la ayuda del profesor Nava.</p>
+    </footer>
+
+    <!-- Botón Flotante de Comentarios -->
+    <a href="mailto:tuemail@dominio.com?subject=Comentarios sobre BiblioApps" title="Enviar comentarios" class="fixed bottom-8 right-8 bg-blue-600 text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:bg-blue-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </a>
+    
+    <!-- Script para la funcionalidad del Tema -->
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleIndicator = document.getElementById('theme-toggle-indicator');
+        const htmlElement = document.documentElement;
+
+        // Función para aplicar el tema
+        const applyTheme = (theme) => {
+            if (theme === 'dark') {
+                htmlElement.classList.add('dark');
+                themeToggleIndicator.style.transform = 'translateX(1.25rem)';
+            } else {
+                htmlElement.classList.remove('dark');
+                themeToggleIndicator.style.transform = 'translateX(0)';
+            }
+        };
+
+        // Cargar el tema guardado o el preferido por el sistema
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        applyTheme(savedTheme);
+
+        // Evento para el botón
+        themeToggle.addEventListener('click', () => {
+            const isDarkMode = htmlElement.classList.contains('dark');
+            const newTheme = isDarkMode ? 'light' : 'dark';
+            applyTheme(newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html>
